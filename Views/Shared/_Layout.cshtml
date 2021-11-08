@@ -1,51 +1,138 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Rolodex</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Rolodex</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+﻿    <!DOCTYPE html>
+    <html lang="en" class="h-100">
+    <head>
+        <title>@ViewData["Title"] - Rolodex</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link rel="shortcut icon" href="https:digitalelegance.com/finecode/img/favicon.ico" type="image/x-icon">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+              crossorigin="anonymous" />
+
+        <link href="~/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </head>
+
+    <body class="d-flex flex-column h-100">
+
+        <!-- =======NAVBAR ======= -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-gold border-gold" id="mainNavbar">
+            <div class="container-fluid">
+                <!-- Navbar Logo -->
+                <div class="ps-2">
+                    <a href="http://digitalelegance.com/index.html"></a><a href="index.html" class="navbar-brand header-logo"><img src="http://digitalelegance.com/finecode/img/DE.svg" class="d-inline-block align-text-top mt-1" height="40px">Rolodex</a>
+                </div>
+                <button class="navbar-toggler border-gold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+                <!-- Navbar Links -->
+                <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNav">
+                    <ul class="navbar-nav ms-auto flex-nowrap mb-md-0">
+
+                        <!-- Link - Home  -->
+                        <li class="nav-item px-3 px-lg-0">
+                            <a class="nav-link" id="homeLink" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home me-1  h4"></i>Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contacts" asp-action="Index">Rolodex</a>
+
+                        <!-- Link - The App -->
+                        <li class="nav-item px-3 px-lg-0">
+                            <a class="nav-link" id="appLink" asp-area="" asp-controller="Contacts" asp-action="Index">
+                                <i class="fas fa-file-code me-1  h4"></i>The App
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                        <!-- Link - GitHub Repo -->
+                        <li class="nav-item px-3 px-lg-0">
+                            <a class="nav-link" id="gitLink" target="_blank" href="https://github.com/acieffe/Rolodex">
+                                <i class="fab fa-github me-1  h4"></i>Git Repo
+                            </a>
+                        </li>
+
+                        <!-- Link - About -->
+                        <li class="nav-item px-3 px-lg-0">
+                            <a class="nav-link" id="aboutLink" target="_blank" href="https://digitalelegance.com/finecode/index.html#aboutMe">
+                                <i class="fas fa-user-tie me-1  h4"></i>About
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+
         <div class="container">
-            &copy; 2021 - Rolodex - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+
+        <!-- ====== Footer ======= -->
+        <footer class="full-width footer-radius fixed-bottom bg-black border-gold text-gold pb-2">
+            <div class="container">
+                <div class="row pt-md-2 row-cols-1 row-cols-md-3">
+                    <div class="col-md-3 d-none d-md-block">
+                        <h5 class="thick">Site Links</h5>
+                        <ul class="text-gold no-bullet footer-list">
+                            <li><a class="text-gold" href="https://digitalelegance.com">Digital Elegance | Home</a></li>
+                            <li><a class="text-gold" href="https://digitalelegance.com/finecode/index.html">Fine Code | Home</a></li>
+                            <li><a class="text-gold" href="https://digitalelegance.com/finecode/index.html#about">About</a></li>
+                            <li><a class="text-gold" href="https://digitalelegance.com/finecode/index.html#portfolio">Portfolio</a></li>
+                            <li><a class="text-gold" href="https://digitalelegance.com/finecode/index.html#blog">Blog</a></li>
+                            <!-- Fix Once Blog is started -->
+                            <li><a class="text-gold" href="https://digitalelegance.com/finecode/index.html#contact">Conatct</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6 p-0">
+                        <div class="bg-steel footer-radius text-center h-100">
+                            <img id="de-logo" class="img-fluid h-100 p-2" src="https://digitalelegance.com/finecode/img/DigitalElegance.svg" alt="Digital Elegance" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <h5 class="thick d-none d-md-block">Contact Me</h5>
+                        <ul class="nav flex-md-column text-gold mb-2 footer-list">
+                            <li>Ace Baugh</li>
+                            <li class="d-md-none px-1">|</li>
+                            <li>Orlando, Florida</li>
+                            <li class="d-md-none px-1">|</li>
+                            <li>
+                                <a class="text-gold" href="tel:208-557-9223">(208) 55-79-ACE (223)</a>
+                            </li>
+                            <li class="d-md-none px-1">|</li>
+                            <li class="px-md-0 h-25 d-block-inline">
+                                <a class="text-gold" href="mailto:ace@digitalelegance.com">ace@digitalelegance.com</a>
+                            </li>
+                        </ul>
+                        <div class="social-icons text-center text-md-start">
+                            <a href="https://www.linkedin.com/in/acieffe/"><i class="fab fa-linkedin h4 text-gold"></i></a>
+
+                            <a target="_blank" href="https://twitter.com/acieffe"><i class="fab fa-twitter-square h4 text-gold"></i></a>
+
+                            <a href="https://github.com/acieffe"><i class="fab fa-github-square h4 text-gold"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-p text-center">
+                Copyright &copy; 2021 Digital Elegance, all rights reserved. Developed by
+                <a class="text-gold" href="mailto:ace@digitalelegance.com">Ace Baugh | ace@digitalelegance.com</a>
+            </p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+                integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+                crossorigin="anonymous"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
 </html>
